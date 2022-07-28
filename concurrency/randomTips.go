@@ -4,9 +4,9 @@ package concurency
 // if your data size is same as address of that data
 // so passing by pointer will not reduce cost of garbage collector
 // order of goroutines working on channel is fifo
-// its reason is goroutines and go schedular
+// the reasons are goroutines and go schedular
 // because all of goroutines are being hold by P part of go schedular
-// and P is a Q of running goroutines so its fifo and make channels fifo
+// and P is a Q of running goroutines so its fifo and make accessing channels fifo
 // channel is a struct made of three main fields circular buffer, read index, write index, lock
 // whenever you read/write it will changes the index of reading/writing with a lock
 // and you pay cost of copying two times(read and write) whenever sending data
@@ -87,3 +87,9 @@ package concurency
 // and that key should be n not the name of the field  
 // 2 structs are equal if and only if all of their fields have same value
 // if the struct has slice, map or function its not comparable and will result in compile error
+
+
+// never forget to use panic for tracing stacks of goroutins and dumping their state
+// and also go run -race main.go can be useful
+
+
