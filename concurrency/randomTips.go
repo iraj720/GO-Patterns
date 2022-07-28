@@ -48,7 +48,7 @@ package concurency
 // const
 // all consts should have an exact value at compile time
 // e.g : const a = getA() has compile error cause getA() will be known at runtime
-// there is no emplicit conversion in golang except using untyped const
+// there is no implicit conversion in golang except using untyped const
 // consts default :
 // 123        //Default hidden type is int
 // "circle"   //Default hidden type is string
