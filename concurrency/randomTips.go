@@ -32,7 +32,7 @@ package concurency
 // the main advantage of this model is here it wont block the os thread it will run another attached G
 // what is happening to channel
 // channel has 2 Qs sendQ and recQ that both of them are same thing they have a pointer to reader/writer G
-// and T1 (a pointer to the element that we will read from or write into it) 
+// and T1 (a pointer to the element that we will read from or write into it)
 // G will copy its element to T1 when writing to channel (in reading its sh different)
 // so paused Gs will be here in theses 2 Qs and whenever reader comes in
 // reader will remove writer G from writeQ and copy its element on circular buffer
@@ -43,7 +43,6 @@ package concurency
 // now its paused when writer comes across it wont write it to Circular buffer because now
 // we have pointer of element of reading channel in recQ so we will write it directly to that element
 // and thats NICE !
-
 
 // const
 // all consts should have an exact value at compile time
@@ -57,11 +56,9 @@ package concurency
 // 'a'        //Default hidden type is int32 or rune
 // 3+5i       //Default hidden type is complex128
 
-
-
 // defer
-// when you defer a function go puts it into a stack 
-// go just put any defer he sees into that stack and after when closing each stack function 
+// when you defer a function go puts it into a stack
+// go just put any defer he sees into that stack and after when closing each stack function
 // it will pop 1 defer and call it and so on ...
 // so below code will result in : 3, 2, 1
 //     i := 0
@@ -75,21 +72,31 @@ package concurency
 // defer statements are evaluated in the line we call it
 // and it doesnt care about any changes between defer line and closing of stack of the function
 
-
-// pointer arithmetic is not possible in golang and you cannot add to refrence and 
+// pointer arithmetic is not possible in golang and you cannot add to refrence and
 // see the next byte of memory which is able in C
 
-
-
-// structs 
+// structs
 // you can add meta data to your struct fields
 // e.g when you add 'json: "n"' to a field its json encoding will be different
-// and that key should be n not the name of the field  
+// and that key should be n not the name of the field
 // 2 structs are equal if and only if all of their fields have same value
 // if the struct has slice, map or function its not comparable and will result in compile error
-
 
 // never forget to use panic for tracing stacks of goroutins and dumping their state
 // and also go run -race main.go can be useful
 
-
+// netchan package by rob pike
+// nil value vs nil interface
+// go fix rouss cox
+// micro patterns
+// pnacl
+// talks.google.org
+// issue tracker
+// erlang oct model
+// erlang cross network function calls
+// ssa package compile checker
+// llvm back-end
+// gray smith phd thesis
+// dont use empty interface
+// dont use reflection
+// drpc
